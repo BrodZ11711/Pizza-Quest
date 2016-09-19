@@ -4,12 +4,22 @@ var RIGHT = 1;
 
 //these are the variables for the animation arrays
 var ANIM_IDLE_RIGHT = 0;
+var ANIM_WALK_RIGHT = 1;
+var ANIM_JUMP_RIGHT = 2;
+
 var Player = function ()
 {
     //this is for the animation of the sprite.
     this.sprite = new Sprite("Player.png");
 
     //this is the animations for the Main player.
+    //this is the animation for idle right
+    this.sprite.buildAnimation(12, 8, 165, 126, 0.05,
+    [0, 1, 2, 3, ]);
+    this.sprite.buildAnimation(12, 8, 165, 126, 0.05,
+        [4, 5, 6, 7, 8, 9, 10, 11, 12, ]);
+    this.sprite.buildAnimation(12, 8, 165, 126, 0.05,
+        [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, ]);
 
     this.position = new Vector2()
     this.position.set(9 * TILE, 0 * TILE);
@@ -205,11 +215,12 @@ Player.prototype.update = function (deltaTime)
             this.sprite.setAnimation(ANIM_JUMP_RIGHT);
         }
     }
-    //this will make it so everytime the player shoots it will make the shooting sound.
+    
     if (keyboard.isKeyDown(keyboard.KEY_UP) == true)
     {
         jump = true;
     }
+    //this will make it so everytime the player shoots it will make the shooting sound.
     if (this.cooldownTimer > 0)
     {
         this.cooldownTimer -= deltaTime;
