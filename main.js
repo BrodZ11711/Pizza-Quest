@@ -61,11 +61,11 @@ heartImage.src = "heart.png";
 // abitrary choice for 1m
 var METER = TILE;
 // very exaggerated gravity (6x)
-var GRAVITY = METER * 9.8 * 6;
+var GRAVITY = METER * 9.8 * 0.5;
 // max horizontal speed (10 tiles per second)
-var MAXDX = METER * 10;
+var MAXDX = METER * 20;
 // max vertical speed (15 tiles per second)
-var MAXDY = METER * 15;
+var MAXDY = METER * 25;
 // horizontal acceleration - take 1/2 second to reach maxdx
 var ACCEL = MAXDX * 2;
 // horizontal friction - take 1/6 second to stop from maxdx
@@ -178,8 +178,12 @@ var worldOffsetX = 0;
 function drawMap() {
     var startX = -1;
     var maxTiles = Math.floor(SCREEN_WIDTH / TILE) + 2;
+    var maxTilesH = Math.floor(SCREEN_HEIGHT / TILE) + 2;
     var tileX = pixelToTile(player.position.x);
+    var tileY = pixelToTile(player.position.y);
+
     var offsetX = TILE + Math.floor(player.position.x % TILE);
+    var offsetY = TILE + Math.floor(player.position.y % TILE);
 
     startX = tileX - Math.floor(maxTiles / 2);
 
