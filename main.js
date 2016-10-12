@@ -280,7 +280,7 @@ function drawMap() {
 
         //Draw Hearts (Lives)
         for (var i = 0; i < lives; i++) {
-            context.drawImage(heartImage, 5 + ((heartImage.width) * i / 14), 20, 30, 30);
+            context.drawImage(heartImage, 235 + ((heartImage.width) * i / 30), 55, 50, 40);
         }
         if (player.position.y >= canvas.height) {
             lives -= 1;
@@ -292,6 +292,14 @@ function drawMap() {
             }
         }
     }
+
+
+         //Draw lives name
+    context.fillStyle = "#fa335e";
+    context.font = "20px Arial";
+    var Lives = "LIVES" 
+    context.fillText(Lives, 5, 20, 100);
+
 
     function runGameOver(deltaTime) {
         //this customizies the splash 
