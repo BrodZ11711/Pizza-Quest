@@ -40,10 +40,10 @@ var SCREEN_HEIGHT = canvas.height;
 var LAYER_COUNT = 4;
 var LAYER_BACKGOUND = 0;
 var LAYER_PLATFORMS = 1;
-var LAYER_LADDERS = 2;
+var LAYER_Torches = 2;
 var LAYER_OBJECT_TRIGGERS = 3;
 
-var MAP = { tw: 60, th: 15 };
+var MAP = { tw: 60, th: 20 };
 var TILE = 35;
 var TILESET_TILE = TILE * 2;
 var TILESET_PADDING = 2;
@@ -178,12 +178,8 @@ var worldOffsetX = 0;
 function drawMap() {
     var startX = -1;
     var maxTiles = Math.floor(SCREEN_WIDTH / TILE) + 2;
-    var maxTilesH = Math.floor(SCREEN_HEIGHT / TILE) + 2;
     var tileX = pixelToTile(player.position.x);
-    var tileY = pixelToTile(player.position.y);
-
     var offsetX = TILE + Math.floor(player.position.x % TILE);
-    var offsetY = TILE + Math.floor(player.position.y % TILE);
 
     startX = tileX - Math.floor(maxTiles / 2);
 
@@ -292,6 +288,15 @@ function drawMap() {
             }
         }
     }
+
+
+    //Draw lives name
+    context.fillStyle = "#fa335e";
+    context.font = "20px Arial";
+    var Lives = "LIVES"
+    context.fillText(Lives, 5, 20, 100);
+
+
 
     function runGameOver(deltaTime) {
         //this customizies the splash 
