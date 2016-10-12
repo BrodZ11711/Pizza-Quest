@@ -3,29 +3,45 @@ var LEFT = 0;
 var RIGHT = 1;
 
 //these are the variables for the animation arrays
-var ANIM_IDLE_RIGHT = 0;
-var ANIM_WALK_RIGHT = 1;
-var ANIM_JUMP_RIGHT = 2;
+var ANIM_IDLE_LEFT = 0;
+var ANIM_JUMP_LEFT = 1;
+var ANIM_WALK_LEFT = 2;
+var ANIM_IDLE_RIGHT = 3;
+var ANIM_JUMP_RIGHT = 4;
+var ANIM_WALK_RIGHT = 5;
+var ANIM_MAX = 6;
 
 var Player = function ()
 {
     //this is for the animation of the sprite.
-    this.sprite = new Sprite("Player.png");
+    this.sprite = new Sprite("player.png");
 
     //this is the animations for the Main player.
     //this is the animation for idle right
+    //this is the animation for idle left
     this.sprite.buildAnimation(12, 8, 165, 126, 0.05,
-    [0, 1, 2, 3, ]);
+    [0, 1, 2, 3, 4, 5, 6, 7]);
+    //this is the animation for jump left
     this.sprite.buildAnimation(12, 8, 165, 126, 0.05,
-        [4, 5, 6, 7, 8, 9, 10, 11, 12, ]);
+    [8, 9, 10, 11, 12]);
+    //this is the animation for walking left
     this.sprite.buildAnimation(12, 8, 165, 126, 0.05,
-        [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, ]);
+    [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]);
+    //this is the animation for idle right
+    this.sprite.buildAnimation(12, 8, 165, 126, 0.05,
+    [52, 53, 54, 55, 56, 57, 58, 59]);
+    //this is the animation for the jump right
+    this.sprite.buildAnimation(12, 8, 165, 126, 0.05,
+    [60, 61, 62, 63, 64]);
+    //this is the animation for walking right
+    this.sprite.buildAnimation(12, 8, 165, 126, 0.05,
+    [65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78]);;
 
     this.position = new Vector2()
     this.position.set(9 * TILE, 0 * TILE);
 
-    this.width = 159;
-    this.height = 163;
+    this.width = 165;
+    this.height = 125;
 
     this.velocity = new Vector2();
 

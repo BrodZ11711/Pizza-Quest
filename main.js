@@ -40,10 +40,10 @@ var SCREEN_HEIGHT = canvas.height;
 var LAYER_COUNT = 4;
 var LAYER_BACKGOUND = 0;
 var LAYER_PLATFORMS = 1;
-var LAYER_LADDERS = 2;
+var LAYER_Torches = 2;
 var LAYER_OBJECT_TRIGGERS = 3;
 
-var MAP = { tw: 60, th: 15 };
+var MAP = { tw: 60, th: 20 };
 var TILE = 35;
 var TILESET_TILE = TILE * 2;
 var TILESET_PADDING = 2;
