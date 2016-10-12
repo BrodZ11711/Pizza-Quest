@@ -177,6 +177,8 @@ function initialize() {
 var worldOffsetX = 0;
 function drawMap() {
     var startX = -1;
+    var startY = -1;
+
         var maxTiles = Math.floor(SCREEN_WIDTH / TILE) + 2;
        var maxTilesH = Math.floor(SCREEN_HEIGHT / TILE) + 2;
     
@@ -187,6 +189,7 @@ function drawMap() {
        var offsetY = TILE + Math.floor(player.position.y % TILE);
     
        startX = tileX - Math.floor(maxTiles / 2);
+       startY = tileY - Math.floor(maxTilesH / 2);
     
         if (startX < -1) {
                startX = 0;
@@ -195,7 +198,8 @@ function drawMap() {
         if (startX > MAP.tw - maxTiles) {
                startX = MAP.tw - maxTiles + 1;
                 offsetX = TILE;
-           }
+        }
+
         worldOffsetX = startX * TILE + offsetX;
     
        for (var layerIdx = 0; layerIdx < LAYER_COUNT; layerIdx++) {
@@ -216,7 +220,11 @@ function drawMap() {
                                idx++;
                            }
                     }
-           }
+       }
+
+       
+
+
     }
 //---------------------------------------------------------------------------------------------------------------------------------------
     //this adds the timer for the splash to finish
@@ -281,7 +289,7 @@ function drawMap() {
 
         //Draw Hearts (Lives)
         for (var i = 0; i < lives; i++) {
-            context.drawImage(heartImage, 5 + ((heartImage.width) * i / 14), 20, 30, 30);
+            context.drawImage(heartImage, 245 + ((heartImage.width) * i / 38), 50, 40, 50);
         }
         if (player.position.y >= canvas.height) {
             lives -= 1;
